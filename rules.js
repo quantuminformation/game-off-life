@@ -15,21 +15,9 @@ export const checkCellLife= (cellState, neighbors) =>{
     const liveNeighbors = neighbors.filter(Boolean).length;
 
     if (cellState) {
-        // Any live cell with two or three live neighbors survives.
-        if (liveNeighbors === 2 || liveNeighbors === 3) {
-            return true;
-        } else {
-            // All other live cells die in the next generation.
-            return false;
-        }
+      return liveNeighbors === 2 || liveNeighbors === 3
     } else {
-        // Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
-        if (liveNeighbors === 3) {
-            return true;
-        } else {
-            // All other dead cells stay dead.
-            return false;
-        }
+      return liveNeighbors === 3
     }
 
 }
